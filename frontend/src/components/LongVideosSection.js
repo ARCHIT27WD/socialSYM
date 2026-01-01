@@ -8,18 +8,8 @@ const LongVideosSection = ({ videos }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  if (!videos || videos.length === 0) return null;
-
   const itemsPerView = 2;
-  const totalSlides = Math.ceil(videos.length / itemsPerView);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 6000);
-
-    return () => clearInterval(timer);
-  }, [currentIndex, videos.length]);
+  const totalSlides = videos && videos.length > 0 ? Math.ceil(videos.length / itemsPerView) : 0;
 
   const handleNext = () => {
     setDirection(1);
@@ -30,6 +20,18 @@ const LongVideosSection = ({ videos }) => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
+
+  useEffect(() => {
+    if (!videos || videos.length === 0) return;
+    
+    const timer = setInterval(() => {
+      handleNext();
+    }, 6000);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, videos]);
+
+  if (!videos || videos.length === 0) return null;
 
   const getCurrentVideos = () => {
     const start = currentIndex * itemsPerView;

@@ -1,0 +1,154 @@
+{
+  "project_name": "Soccial Symphony",
+  "design_philosophy": {
+    "theme": "Symphony of the Night",
+    "vibe": "Cinematic, Elegant, Rhythm-focused",
+    "core_concept": "Visualizing sound and connection through deep contrast and fluid motion.",
+    "mode": "dark"
+  },
+  "typography": {
+    "headings": {
+      "font_family": "Playfair Display, serif",
+      "weights": ["400", "700"],
+      "usage": "Main headlines, Section titles. Use for 'Soccial Symphony' branding to evoke elegance."
+    },
+    "body": {
+      "font_family": "Manrope, sans-serif",
+      "weights": ["300", "400", "500", "600"],
+      "usage": "Paragraphs, UI elements, Buttons. Clean and modern to balance the serif headings."
+    },
+    "mono": {
+      "font_family": "JetBrains Mono, monospace",
+      "usage": "Tiny labels, decorative numbers, technical details."
+    }
+  },
+  "colors": {
+    "palette": {
+      "background": "#050505",
+      "surface": "#0A0A0A",
+      "surface_highlight": "#121212",
+      "text_primary": "#FAFAFA",
+      "text_secondary": "#A1A1AA",
+      "primary": "#F59E0B",
+      "primary_glow": "rgba(245, 158, 11, 0.3)",
+      "accent": "#6366F1",
+      "border": "#27272A",
+      "success": "#10B981",
+      "error": "#EF4444"
+    },
+    "gradients": {
+      "hero_glow": "radial-gradient(circle at center, rgba(245, 158, 11, 0.15) 0%, rgba(5, 5, 5, 0) 70%)",
+      "glass": "linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.01) 100%)"
+    }
+  },
+  "layout_strategy": {
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "spacing": {
+      "section_gap": "py-24 lg:py-32",
+      "element_gap": "gap-8"
+    },
+    "grid_system": {
+      "bento": "grid grid-cols-1 md:grid-cols-3 gap-6",
+      "features": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-primary text-black font-bold px-8 py-3 rounded-full hover:scale-105 transition-transform shadow-[0_0_20px_rgba(245,158,11,0.3)]",
+      "secondary": "bg-transparent border border-white/20 text-white px-8 py-3 rounded-full hover:bg-white/10 transition-colors",
+      "ghost": "text-white/70 hover:text-white transition-colors"
+    },
+    "cards": {
+      "glass": "bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl p-6 hover:border-primary/50 transition-colors",
+      "solid": "bg-surface_highlight border border-border rounded-2xl p-6"
+    },
+    "inputs": {
+      "style": "bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all placeholder:text-white/30"
+    }
+  },
+  "sections": {
+    "hero": {
+      "description": "Full screen height. Centered content. 'Soccial Symphony' in large Playfair Display. Subtext in Manrope. Background should be deep black with a subtle 'Gold' glow or soundwave effect.",
+      "elements": ["Logo", "Tagline", "CTA Button"]
+    },
+    "about": {
+      "description": "Two column layout. Left: Text (Founders info). Right: Abstract visual or Founders photo (if provided, else placeholder).",
+      "content": "Co-founded by Neeraj Vaid and Pijush Singha."
+    },
+    "short_videos": {
+      "type": "Carousel",
+      "style": "Phone-aspect ratio cards (9:16). Horizontal scroll. Snap-to-center. Glassmorphism overlay for titles.",
+      "limit": 10
+    },
+    "long_videos": {
+      "type": "Grid",
+      "style": "16:9 Aspect ratio embeds. 2 or 3 columns. Rounded corners. Hover glow effect.",
+      "limit": 10
+    },
+    "services": {
+      "layout": "Bento Grid",
+      "items": [
+        {
+          "title": "Podcast Production",
+          "image": "https://images.unsplash.com/photo-1643875180552-03b9bb103768",
+          "col_span": "md:col-span-2"
+        },
+        {
+          "title": "Video Editing",
+          "image": "https://images.unsplash.com/photo-1682506457554-b34c9682e985",
+          "col_span": "md:col-span-1"
+        },
+        {
+          "title": "YouTube Thumbnails",
+          "image": "https://images.unsplash.com/photo-1626785774573-4b799312c95d?q=80&w=2070&auto=format&fit=crop",
+          "col_span": "md:col-span-1"
+        },
+        {
+          "title": "Cinematography",
+          "image": "https://images.unsplash.com/photo-1762028895833-59a751ccf89e",
+          "col_span": "md:col-span-2"
+        }
+      ]
+    },
+    "testimonials": {
+      "style": "Horizontal scrolling cards or Grid. 5 Star icons (Phosphor Icons 'Star' weight='fill'). Quote marks.",
+      "data_source": "Admin managed"
+    },
+    "enquiry": {
+      "fields": ["Name", "Email", "Contact Number", "Comment"],
+      "style": "Minimalist form on a glass card. Centered."
+    },
+    "footer": {
+      "links": ["YouTube", "Instagram", "Email"],
+      "style": "Simple, centered, copyright info."
+    }
+  },
+  "admin_dashboard": {
+    "route": "/admin-secret",
+    "auth": "Simple password check (hardcoded or env for MVP)",
+    "features": [
+      "Manage Short Videos (Add/Remove URLs)",
+      "Manage Long Videos (Add/Remove YouTube IDs)",
+      "Manage Testimonials (Add/Edit/Delete)",
+      "View Enquiries (Read-only list)"
+    ],
+    "style": "Clean, functional, tabular data. Use Shadcn Table and Dialog components."
+  },
+  "assets": {
+    "icons": "Phosphor Icons (React)",
+    "images": {
+      "podcast_mic": "https://images.unsplash.com/photo-1643875180552-03b9bb103768",
+      "editing_setup": "https://images.unsplash.com/photo-1682506457554-b34c9682e985",
+      "camera_gear": "https://images.unsplash.com/photo-1762028895833-59a751ccf89e",
+      "thumbnail_art": "https://images.unsplash.com/photo-1626785774573-4b799312c95d?q=80&w=2070&auto=format&fit=crop"
+    }
+  },
+  "universal_guidelines": [
+    "Use 'framer-motion' for all entrance animations (FadeIn, SlideUp).",
+    "Ensure all interactive elements have hover states (brightness-110 or scale-105).",
+    "Use 'sonner' for form submission success/error toasts.",
+    "Do not use default scrollbars. Use 'tailwind-scrollbar' or custom CSS to hide/style them.",
+    "Ensure mobile responsiveness. Stack grids to 1 column on mobile.",
+    "Use 'lucide-react' or 'phosphor-react' for icons."
+  ]
+}

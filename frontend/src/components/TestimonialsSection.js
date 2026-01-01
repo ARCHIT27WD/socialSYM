@@ -1,24 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { Star, Quotes, CaretLeft, CaretRight } from '@phosphor-icons/react';
 
 const TestimonialsSection = ({ testimonials }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(0);
-
-  const itemsPerView = 3;
-  const totalSlides = testimonials && testimonials.length > 0 ? Math.ceil(testimonials.length / itemsPerView) : 0;
 
   const handleNext = () => {
-    setDirection(1);
-    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
   };
 
   const handlePrev = () => {
-    setDirection(-1);
-    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
   };
 
   useEffect(() => {
@@ -33,25 +27,14 @@ const TestimonialsSection = ({ testimonials }) => {
 
   if (!testimonials || testimonials.length === 0) return null;
 
-  const getCurrentTestimonials = () => {
-    const start = currentIndex * itemsPerView;
-    const end = start + itemsPerView;
-    return testimonials.slice(start, end);
-  };
-
-  const slideVariants = {
-    enter: (direction) => ({
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
-    }),
-    center: {
-      x: 0,
-      opacity: 1
-    },
-    exit: (direction) => ({
-      x: direction > 0 ? -1000 : 1000,
-      opacity: 0
-    })
+  const getVisibleTestimonials = () => {
+    if (testimonials.length <= 3) return testimonials;
+    
+    const visible = [];
+    for (let i = 0; i < 3; i++) {
+      visible.push(testimonials[(currentIndex + i) % testimonials.length]);
+    }
+    return visible;
   };
 
   return (
@@ -80,77 +63,66 @@ const TestimonialsSection = ({ testimonials }) => {
         </motion.div>
 
         <div className="relative">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
-            <motion.div
-              key={currentIndex}
-              custom={direction}
-              variants={slideVariants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={{
-                x: { type: "spring", stiffness: 300, damping: 30 },
-                opacity: { duration: 0.2 }
-              }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
-            >
-              {getCurrentTestimonials().map((testimonial, index) => (
-                <div
-                  key={testimonial.id}
-                  className="relative p-8 rounded-3xl"
-                  style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)'
-                  }}
-                  data-testid={`testimonial-${index}`}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {getVisibleTestimonials().map((testimonial, index) => (
+              <motion.div
+                key={`${testimonial.id}-${currentIndex}-${index}`}
+                initial={{ opacity: 0, x: 100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative p-8 rounded-3xl"
+                style={{
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  backdropFilter: 'blur(10px)'
+                }}
+                data-testid={`testimonial-${index}`}
+              >
+                <Quotes
+                  size={48}
+                  weight="fill"
+                  color="#F59E0B"
+                  className="opacity-20 mb-4"
+                />
+                
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} size={20} weight="fill" color="#F59E0B" />
+                  ))}
+                </div>
+                
+                <p
+                  className="text-base mb-6 leading-relaxed"
+                  style={{ color: '#FAFAFA' }}
                 >
-                  <Quotes
-                    size={48}
-                    weight="fill"
-                    color="#F59E0B"
-                    className="opacity-20 mb-4"
-                  />
-                  
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} size={20} weight="fill" color="#F59E0B" />
-                    ))}
-                  </div>
-                  
-                  <p
-                    className="text-base mb-6 leading-relaxed"
-                    style={{ color: '#FAFAFA' }}
-                  >
-                    {testimonial.content}
-                  </p>
-                  
-                  <div className="flex items-center gap-4">
-                    {testimonial.avatar_url && (
-                      <img
-                        src={testimonial.avatar_url}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover"
-                        style={{ border: '2px solid rgba(245, 158, 11, 0.5)' }}
-                      />
+                  {testimonial.content}
+                </p>
+                
+                <div className="flex items-center gap-4">
+                  {testimonial.avatar_url && (
+                    <img
+                      src={testimonial.avatar_url}
+                      alt={testimonial.name}
+                      className="w-12 h-12 rounded-full object-cover"
+                      style={{ border: '2px solid rgba(245, 158, 11, 0.5)' }}
+                    />
+                  )}
+                  <div>
+                    <h4 className="font-bold" style={{ color: '#FAFAFA' }}>
+                      {testimonial.name}
+                    </h4>
+                    {testimonial.role && (
+                      <p className="text-sm" style={{ color: '#A1A1AA' }}>
+                        {testimonial.role}
+                      </p>
                     )}
-                    <div>
-                      <h4 className="font-bold" style={{ color: '#FAFAFA' }}>
-                        {testimonial.name}
-                      </h4>
-                      {testimonial.role && (
-                        <p className="text-sm" style={{ color: '#A1A1AA' }}>
-                          {testimonial.role}
-                        </p>
-                      )}
-                    </div>
                   </div>
                 </div>
-              ))}
-            </motion.div>
-          </AnimatePresence>
+              </motion.div>
+            ))}
+          </div>
 
-          {totalSlides > 1 && (
+          {testimonials.length > 3 && (
             <>
               <button
                 onClick={handlePrev}
@@ -177,13 +149,10 @@ const TestimonialsSection = ({ testimonials }) => {
               </button>
 
               <div className="flex justify-center gap-2 mt-8">
-                {[...Array(totalSlides)].map((_, i) => (
+                {testimonials.map((_, i) => (
                   <button
                     key={i}
-                    onClick={() => {
-                      setDirection(i > currentIndex ? 1 : -1);
-                      setCurrentIndex(i);
-                    }}
+                    onClick={() => setCurrentIndex(i)}
                     className="w-2 h-2 rounded-full transition-all duration-300"
                     style={{
                       background: i === currentIndex ? '#F59E0B' : 'rgba(255, 255, 255, 0.2)',
@@ -199,5 +168,7 @@ const TestimonialsSection = ({ testimonials }) => {
     </section>
   );
 };
+
+export default TestimonialsSection;
 
 export default TestimonialsSection;

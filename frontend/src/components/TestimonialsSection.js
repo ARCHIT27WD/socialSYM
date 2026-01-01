@@ -8,18 +8,8 @@ const TestimonialsSection = ({ testimonials }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(0);
 
-  if (!testimonials || testimonials.length === 0) return null;
-
   const itemsPerView = 3;
-  const totalSlides = Math.ceil(testimonials.length / itemsPerView);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      handleNext();
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [currentIndex, testimonials.length]);
+  const totalSlides = testimonials && testimonials.length > 0 ? Math.ceil(testimonials.length / itemsPerView) : 0;
 
   const handleNext = () => {
     setDirection(1);
@@ -30,6 +20,18 @@ const TestimonialsSection = ({ testimonials }) => {
     setDirection(-1);
     setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
   };
+
+  useEffect(() => {
+    if (!testimonials || testimonials.length === 0) return;
+    
+    const timer = setInterval(() => {
+      handleNext();
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [currentIndex, testimonials]);
+
+  if (!testimonials || testimonials.length === 0) return null;
 
   const getCurrentTestimonials = () => {
     const start = currentIndex * itemsPerView;

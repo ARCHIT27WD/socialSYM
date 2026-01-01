@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Microphone, VideoCamera, Image, Film } from '@phosphor-icons/react';
+import { Microphone, VideoCamera, Image, FilmStrip } from '@phosphor-icons/react';
 
 const services = [
   {

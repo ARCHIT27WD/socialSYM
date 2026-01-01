@@ -27,7 +27,7 @@ const services = [
   {
     title: 'Cinematography',
     image: 'https://images.unsplash.com/photo-1762028895833-59a751ccf89e',
-    icon: Film,
+    icon: FilmStrip,
     colSpan: 'md:col-span-2',
     description: 'Professional video production and cinematography'
   }

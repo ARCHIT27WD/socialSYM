@@ -23,13 +23,6 @@ const services = [
     icon: Image,
     colSpan: 'md:col-span-1',
     description: 'Eye-catching thumbnails that drive clicks'
-  },
-  {
-    title: 'Cinematography',
-    image: 'https://images.unsplash.com/photo-1762028895833-59a751ccf89e',
-    icon: FilmStrip,
-    colSpan: 'md:col-span-2',
-    description: 'Professional video production and cinematography'
   }
 ];
 

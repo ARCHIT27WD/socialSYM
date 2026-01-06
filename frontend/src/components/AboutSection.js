@@ -9,6 +9,7 @@ const AboutSection = () => {
   return (
     <section
       ref={ref}
+      id="about-section"
       className="py-24 lg:py-32 relative"
       style={{ background: '#050505' }}
       data-testid="about-section"

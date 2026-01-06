@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Star, Play } from '@phosphor-icons/react';
-import { toast } from 'sonner';
+import Navbar from '../components/Navbar';
 import HeroSection from '../components/HeroSection';
 import AboutSection from '../components/AboutSection';
 import ShortVideosSection from '../components/ShortVideosSection';
@@ -55,6 +54,7 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen">
+      <Navbar />
       <HeroSection />
       <AboutSection />
       {shortVideos.length > 0 && <ShortVideosSection videos={shortVideos} />}

@@ -33,6 +33,7 @@ const ServicesSection = () => {
   return (
     <section
       ref={ref}
+      id="services-section"
       className="py-24 lg:py-32"
       style={{ background: '#0A0A0A' }}
       data-testid="services-section"

@@ -40,6 +40,7 @@ const TestimonialsSection = ({ testimonials }) => {
   return (
     <section
       ref={ref}
+      id="testimonials-section"
       className="py-24 lg:py-32 relative overflow-hidden"
       style={{ background: '#050505' }}
       data-testid="testimonials-section"

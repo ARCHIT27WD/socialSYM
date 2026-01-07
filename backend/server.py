@@ -219,6 +219,53 @@ async def create_enquiry(enquiry: EnquiryCreate):
     doc = enquiry_obj.model_dump()
     doc['created_at'] = doc['created_at'].isoformat()
     await db.enquiries.insert_one(doc)
+    
+    # Send email notification asynchronously
+    try:
+        html_content = f"""
+        <html>
+            <body style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
+                <div style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%); padding: 30px; border-radius: 10px 10px 0 0;">
+                    <h1 style="color: #000; margin: 0; font-size: 28px;">New Enquiry Received! 🎵</h1>
+                </div>
+                <div style="background: #f5f5f5; padding: 30px; border-radius: 0 0 10px 10px;">
+                    <h2 style="color: #333; margin-top: 0;">Contact Details:</h2>
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Name:</strong></td>
+                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">{enquiry.name}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Email:</strong></td>
+                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">{enquiry.email}</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border-bottom: 1px solid #ddd;"><strong>Contact:</strong></td>
+                            <td style="padding: 10px; border-bottom: 1px solid #ddd;">{enquiry.contact}</td>
+                        </tr>
+                    </table>
+                    <h3 style="color: #333; margin-top: 20px;">Message:</h3>
+                    <p style="background: white; padding: 15px; border-radius: 5px; line-height: 1.6;">{enquiry.comment}</p>
+                    <p style="color: #666; font-size: 12px; margin-top: 20px;">Received on: {datetime.now(timezone.utc).strftime('%B %d, %Y at %I:%M %p UTC')}</p>
+                </div>
+            </body>
+        </html>
+        """
+        
+        params = {
+            "from": "Soccial Symphony <onboarding@resend.dev>",
+            "to": [NOTIFICATION_EMAIL],
+            "subject": f"New Enquiry from {enquiry.name}",
+            "html": html_content
+        }
+        
+        # Send email in background (non-blocking)
+        await asyncio.to_thread(resend.Emails.send, params)
+        logger.info(f"Email notification sent to {NOTIFICATION_EMAIL}")
+    except Exception as e:
+        logger.error(f"Failed to send email notification: {str(e)}")
+        # Don't fail the request if email fails
+    
     return enquiry_obj
 
 app.include_router(api_router)

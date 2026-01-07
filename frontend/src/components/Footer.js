@@ -117,7 +117,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t" style={{ borderColor: '#27272A' }}>
           <p className="text-center text-sm" style={{ color: '#A1A1AA' }}>
-            © 2025 Soccial Symphony. All rights reserved. | Co-founded by Neeraj Vaid & Pijush Singha
+            © 2026 Soccial Symphony. All rights reserved. | Co-founded by Neeraj Vaid & Pijush Singha
           </p>
         </div>
       </div>

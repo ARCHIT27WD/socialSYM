@@ -1,28 +1,35 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Microphone, VideoCamera, Image, FilmStrip } from '@phosphor-icons/react';
+import { Microphone, VideoCamera, Image, InstagramLogo } from '@phosphor-icons/react';
 
 const services = [
   {
     title: 'Podcast Production',
-    image: 'https://images.unsplash.com/photo-1643875180552-03b9bb103768',
+    image: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=2070',
     icon: Microphone,
     colSpan: 'md:col-span-2',
     description: 'Professional podcast recording, editing, and production services'
   },
   {
     title: 'Video Editing',
-    image: 'https://images.unsplash.com/photo-1682506457554-b34c9682e985',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070',
     icon: VideoCamera,
     colSpan: 'md:col-span-1',
     description: 'Creative video editing for all platforms'
   },
   {
     title: 'YouTube Thumbnails',
-    image: 'https://images.unsplash.com/photo-1626785774573-4b799312c95d?q=80&w=2070&auto=format&fit=crop',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2074',
     icon: Image,
     colSpan: 'md:col-span-1',
     description: 'Eye-catching thumbnails that drive clicks'
+  },
+  {
+    title: 'Social Media Handling',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=2070',
+    icon: InstagramLogo,
+    colSpan: 'md:col-span-2',
+    description: 'Complete social media management and content strategy'
   }
 ];
 

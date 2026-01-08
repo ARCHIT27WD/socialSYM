@@ -65,7 +65,9 @@ const AboutSection = () => {
                   src="/SS_logo.png"
                   alt="Soccial Symphony"
                   className="w-full h-full object-contain"
-                  style={{ filter: 'drop-shadow(0 0 40px rgba(245, 158, 11, 0.3))' }}
+                  style={{ 
+                    filter: 'brightness(1.5) contrast(1.2) drop-shadow(0 0 50px rgba(255, 255, 255, 0.3))'
+                  }}
                 />
               </div>
             </div>

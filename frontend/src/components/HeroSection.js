@@ -27,7 +27,12 @@ const HeroSection = () => {
             src="/SS_logo.png"
             alt="Soccial Symphony Logo"
             className="mx-auto"
-            style={{ maxWidth: '400px', width: '100%', height: 'auto' }}
+            style={{ 
+              maxWidth: '400px', 
+              width: '100%', 
+              height: 'auto',
+              filter: 'brightness(1.4) contrast(1.2) drop-shadow(0 0 30px rgba(255, 255, 255, 0.4))'
+            }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1, delay: 0.2 }}

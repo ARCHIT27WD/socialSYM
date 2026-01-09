@@ -31,7 +31,7 @@ const HeroSection = () => {
               maxWidth: '400px', 
               width: '100%', 
               height: 'auto',
-              filter: 'saturate(1.3) contrast(1.1) drop-shadow(0 0 30px rgba(245, 158, 11, 0.3))'
+              filter: 'saturate(1.3) contrast(1.1) drop-shadow(0 0 20px rgba(0, 0, 0, 0.8))'
             }}
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}

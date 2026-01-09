@@ -61,7 +61,7 @@ const Footer = () => {
             </h3>
             <div className="flex gap-4">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/soccialsymphony?igsh=Zmpuc3F5em8yNWY0"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -74,7 +74,7 @@ const Footer = () => {
                 <InstagramLogo size={24} weight="fill" color="#F59E0B" />
               </a>
               <a
-                href="https://youtube.com"
+                href="https://youtube.com/@dreamwithneerajshow?si=yF_3qwxCnHOk6mMc"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
@@ -87,7 +87,7 @@ const Footer = () => {
                 <YoutubeLogo size={24} weight="fill" color="#F59E0B" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/neerajvaid?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"

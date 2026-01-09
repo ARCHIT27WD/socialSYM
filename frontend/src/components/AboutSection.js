@@ -66,7 +66,7 @@ const AboutSection = () => {
                   alt="Soccial Symphony"
                   className="w-full h-full object-contain"
                   style={{ 
-                    filter: 'saturate(1.2) contrast(1.1) drop-shadow(0 0 40px rgba(245, 158, 11, 0.3))'
+                    filter: 'saturate(1.2) contrast(1.1) drop-shadow(0 0 30px rgba(0, 0, 0, 0.8))'
                   }}
                 />
               </div>

@@ -44,7 +44,7 @@ const Navbar = () => {
               alt="Soccial Symphony"
               className="h-12 w-auto"
               style={{ 
-                filter: 'saturate(1.2) contrast(1.1) drop-shadow(0 0 10px rgba(245, 158, 11, 0.4))'
+                filter: 'saturate(1.2) contrast(1.1) drop-shadow(0 0 8px rgba(0, 0, 0, 0.8))'
               }}
             />
           </motion.div>

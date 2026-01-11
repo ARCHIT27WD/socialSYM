@@ -61,7 +61,7 @@ const Footer = () => {
             </h3>
             <div className="flex gap-4">
               <a
-                href="https://www.instagram.com/soccialsymphony?igsh=Zmpuc3F5em8yNWY0"
+                href="https://www.instagram.com/soccialsymphony/?igsh=MTBlczUza2xlejdjNg%3D%3D&utm_source=qr#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"

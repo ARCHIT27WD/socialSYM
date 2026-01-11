@@ -4,7 +4,7 @@ import { ArrowRight } from '@phosphor-icons/react';
 
 const HeroSection = () => {
   const scrollToEnquiry = () => {
-    document.getElementById('enquiry-section')?.scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('long-videos-section')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -43,7 +43,7 @@ const HeroSection = () => {
             className="text-5xl sm:text-6xl lg:text-7xl font-bold"
             style={{
               fontFamily: 'Playfair Display, serif',
-              color: '#F59E0B',
+              color: '#e8e8e8ff',
               textShadow: '0 0 40px rgba(245, 158, 11, 0.3)'
             }}
             initial={{ opacity: 0 }}
@@ -78,7 +78,7 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             data-testid="hero-cta-button"
           >
-            Get Started
+            Explore Our Works
             <ArrowRight size={24} weight="bold" className="group-hover:translate-x-1 transition-transform" />
           </motion.button>
         </motion.div>

@@ -24,7 +24,7 @@ const AboutSection = () => {
           >
             <h2
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
-              style={{ fontFamily: 'Playfair Display, serif', color: '#F59E0B' }}
+              style={{ fontFamily: 'Playfair Display, serif', color: '#e8e8e8ff' }}
             >
               Let's create a symphony of success together.
             </h2>
@@ -62,7 +62,7 @@ const AboutSection = () => {
             >
               <div className="w-full h-full flex items-center justify-center p-12">
                 <img
-                  src="/SS_logo.png"
+                  src="/own.png"
                   alt="Soccial Symphony"
                   className="w-full h-full object-contain"
                   style={{ 

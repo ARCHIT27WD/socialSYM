@@ -40,7 +40,7 @@ const Navbar = () => {
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <img
-              src="/SS_logo.png"
+              src="/logo192.png"
               alt="Soccial Symphony"
               className="h-12 w-auto"
               style={{ 

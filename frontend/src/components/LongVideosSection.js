@@ -18,6 +18,7 @@ const LongVideosSection = ({ videos }) => {
   return (
     <section
       ref={ref}
+      id="long-videos-section"
       className="py-24 lg:py-32"
       style={{ background: '#050505' }}
       data-testid="long-videos-section"

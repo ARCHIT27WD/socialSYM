@@ -76,15 +76,16 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => scrollToSection('enquiry-section')}
-            className="hidden md:block px-6 py-2.5 rounded-full font-semibold transition-all duration-300"
+            className="hidden md:block px-6 py-2.5 rounded-full font-semibold relative overflow-hidden group"
             style={{
-              background: '#F59E0B',
+              background: '#FFF',
               color: '#000',
-              boxShadow: '0 0 20px rgba(245, 158, 11, 0.3)'
+              border: '2px solid #000'
             }}
             data-testid="nav-cta-button"
           >
-            Get Started
+            <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+            <span className="relative z-10">Get Started</span>
           </motion.button>
         </div>
       </div>

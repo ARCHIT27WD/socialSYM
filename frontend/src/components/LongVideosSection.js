@@ -102,16 +102,16 @@ const LongVideosSection = ({ videos }) => {
               onClick={loadMore}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-10 py-4 rounded-full font-bold text-lg transition-all duration-300"
+              className="px-10 py-4 rounded-full font-bold text-lg relative overflow-hidden group"
               style={{
-                background: 'rgba(245, 158, 11, 0.1)',
-                border: '2px solid #F59E0B',
-                color: '#F59E0B',
-                boxShadow: '0 0 20px rgba(245, 158, 11, 0.2)'
+                background: '#FFF',
+                border: '2px solid #000',
+                color: '#000'
               }}
               data-testid="load-more-videos-button"
             >
-              Load More Videos
+              <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+              <span className="relative z-10">Load More Videos</span>
             </motion.button>
           </motion.div>
         )}

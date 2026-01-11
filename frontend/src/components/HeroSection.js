@@ -65,11 +65,11 @@ const HeroSection = () => {
           
           <motion.button
             onClick={scrollToEnquiry}
-            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg transition-all duration-300"
+            className="group inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg relative overflow-hidden"
             style={{
-              background: '#F59E0B',
+              background: '#FFF',
               color: '#000',
-              boxShadow: '0 0 30px rgba(245, 158, 11, 0.4)'
+              border: '2px solid #000'
             }}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
@@ -78,8 +78,9 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.8 }}
             data-testid="hero-cta-button"
           >
-            Explore Our Works
-            <ArrowRight size={24} weight="bold" className="group-hover:translate-x-1 transition-transform" />
+            <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+            <span className="relative z-10 transition-colors duration-500 group-hover:text-black">Explore Our Works</span>
+            <ArrowRight size={24} weight="bold" className="relative z-10 group-hover:translate-x-1 transition-transform" />
           </motion.button>
         </motion.div>
       </div>

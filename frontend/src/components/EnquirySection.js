@@ -135,19 +135,20 @@ const EnquirySection = ({ onSubmit }) => {
                 disabled={isSubmitting}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="group inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg transition-all duration-300"
+                className="group inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg relative overflow-hidden"
                 style={{
-                  background: '#F59E0B',
+                  background: '#FFF',
                   color: '#000',
-                  boxShadow: '0 0 30px rgba(245, 158, 11, 0.4)'
+                  border: '2px solid #000'
                 }}
                 data-testid="enquiry-submit-button"
               >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
+                <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+                <span className="relative z-10">{isSubmitting ? 'Sending...' : 'Send Message'}</span>
                 <PaperPlaneRight 
                   size={22} 
                   weight="bold" 
-                  className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" 
+                  className="relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" 
                 />
               </motion.button>
             </div>

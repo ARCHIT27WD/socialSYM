@@ -92,13 +92,14 @@ const ServicesSection = () => {
                 
                 <div className="relative h-full flex flex-col justify-end p-8">
                   <div
-                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110"
+                    className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
                     style={{
-                      background: 'rgba(245, 158, 11, 0.2)',
-                      border: '1px solid rgba(245, 158, 11, 0.5)'
+                      background: '#FFF',
+                      border: '2px solid #000'
                     }}
                   >
-                    <Icon size={32} weight="bold" color="#F59E0B" />
+                    <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-2xl"></span>
+                    <Icon size={32} weight="bold" color="#000" className="relative z-10" />
                   </div>
                   
                   <h3

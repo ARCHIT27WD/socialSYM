@@ -68,7 +68,7 @@ const ShortVideosSection = ({ videos }) => {
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div
                       className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
-                      style={{ background: '#FFF', border: '2px solid #000' }}
+                      style={{ background: '#e8e8e8ff', border: '2px solid #000' }}
                     >
                       <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
                       <Play size={32} weight="fill" color="#000" className="relative z-10" />

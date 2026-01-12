@@ -44,7 +44,7 @@ const EnquirySection = ({ onSubmit }) => {
           >
             Let's Connect
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#A1A1AA' }}>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#e8e8e8ff' }}>
             Ready to create something extraordinary together? Drop us a message and we'll get back to you soon.
           </p>
         </motion.div>
@@ -137,7 +137,7 @@ const EnquirySection = ({ onSubmit }) => {
                 whileTap={{ scale: 0.95 }}
                 className="group inline-flex items-center gap-3 px-10 py-4 rounded-full font-bold text-lg relative overflow-hidden"
                 style={{
-                  background: '#FFF',
+                  background: '#e8e8e8ff',
                   color: '#000',
                   border: '2px solid #000'
                 }}

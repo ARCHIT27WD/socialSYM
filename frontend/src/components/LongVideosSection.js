@@ -36,7 +36,7 @@ const LongVideosSection = ({ videos }) => {
           >
             Featured Videos
           </h2>
-          <p className="text-lg" style={{ color: '#A1A1AA' }}>
+          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
             Dive deep into our portfolio
           </p>
         </motion.div>
@@ -104,7 +104,7 @@ const LongVideosSection = ({ videos }) => {
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 rounded-full font-bold text-lg relative overflow-hidden group"
               style={{
-                background: '#FFF',
+                background: '#e8e8e8ff',
                 border: '2px solid #000',
                 color: '#000'
               }}

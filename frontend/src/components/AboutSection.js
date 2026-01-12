@@ -29,7 +29,7 @@ const AboutSection = () => {
               Let's create a symphony of success together.
             </h2>
             
-            <div className="space-y-4" style={{ color: '#A1A1AA', fontSize: '1.125rem', lineHeight: '1.75' }}>
+            <div className="space-y-4" style={{ color: '#e8e8e8ff', fontSize: '1.125rem', lineHeight: '1.75' }}>
               <p>
                 <span style={{ color: '#FAFAFA', fontWeight: '600' }}>Soccial Symphony</span> - co-founded by{' '}
                 <span style={{ color: '#F59E0B' }}>Neeraj Vaid</span> and{' '}
@@ -62,7 +62,7 @@ const AboutSection = () => {
             >
               <div className="w-full h-full flex items-center justify-center p-12">
                 <img
-                  src="/own.png"
+                  src="/own1.jpg"
                   alt="Soccial Symphony"
                   className="w-full h-full object-contain"
                   style={{ 

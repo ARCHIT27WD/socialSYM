@@ -58,7 +58,7 @@ const ServicesSection = () => {
           >
             Our Services
           </h2>
-          <p className="text-lg" style={{ color: '#A1A1AA' }}>
+          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
             Comprehensive solutions for your creative needs
           </p>
         </motion.div>
@@ -94,7 +94,7 @@ const ServicesSection = () => {
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
                     style={{
-                      background: '#FFF',
+                      background: '#e8e8e8ff',
                       border: '2px solid #000'
                     }}
                   >
@@ -109,7 +109,7 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-base" style={{ color: '#A1A1AA' }}>
+                  <p className="text-base" style={{ color: '#e8e8e8ff' }}>
                     {service.description}
                   </p>
                 </div>

@@ -28,7 +28,7 @@
       "surface": "#0A0A0A",
       "surface_highlight": "#121212",
       "text_primary": "#FAFAFA",
-      "text_secondary": "#A1A1AA",
+      "text_secondary": "#e8e8e8ff",
       "primary": "#F59E0B",
       "primary_glow": "rgba(245, 158, 11, 0.3)",
       "accent": "#6366F1",

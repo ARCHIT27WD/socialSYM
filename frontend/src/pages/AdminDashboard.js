@@ -138,7 +138,7 @@ const AdminDashboard = () => {
         <Card className="w-full max-w-md" style={{ background: '#0A0A0A', borderColor: '#27272A' }}>
           <CardHeader>
             <CardTitle className="text-2xl" style={{ color: '#F59E0B', fontFamily: 'Playfair Display, serif' }}>Admin Login</CardTitle>
-            <CardDescription style={{ color: '#A1A1AA' }}>Enter password to access dashboard</CardDescription>
+            <CardDescription style={{ color: '#e8e8e8ff' }}>Enter password to access dashboard</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleLogin} className="space-y-4">
@@ -275,17 +275,17 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
         <Table>
           <TableHeader>
             <TableRow style={{ borderColor: '#27272A' }}>
-              <TableHead style={{ color: '#A1A1AA' }}>Title</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>URL</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Order</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Actions</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Title</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>URL</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Order</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {videos.map((video) => (
               <TableRow key={video.id} style={{ borderColor: '#27272A' }}>
                 <TableCell style={{ color: '#FAFAFA' }}>{video.title}</TableCell>
-                <TableCell style={{ color: '#A1A1AA' }}>
+                <TableCell style={{ color: '#e8e8e8ff' }}>
                   <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
                     {video.url.substring(0, 40)}...
                   </a>
@@ -306,7 +306,7 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
           </TableBody>
         </Table>
         {videos.length === 0 && (
-          <div className="text-center py-8" style={{ color: '#A1A1AA' }}>No videos added yet</div>
+          <div className="text-center py-8" style={{ color: '#e8e8e8ff' }}>No videos added yet</div>
         )}
       </CardContent>
     </Card>
@@ -341,7 +341,7 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
             <DialogContent style={{ background: '#0A0A0A', borderColor: '#27272A', color: '#FAFAFA' }}>
               <DialogHeader>
                 <DialogTitle style={{ color: '#F59E0B' }}>Add Long Video</DialogTitle>
-                <DialogDescription style={{ color: '#A1A1AA' }}>Enter YouTube video ID (e.g., dQw4w9WgXcQ)</DialogDescription>
+                <DialogDescription style={{ color: '#e8e8e8ff' }}>Enter YouTube video ID (e.g., dQw4w9WgXcQ)</DialogDescription>
               </DialogHeader>
               <div className="space-y-4">
                 <div>
@@ -386,17 +386,17 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
         <Table>
           <TableHeader>
             <TableRow style={{ borderColor: '#27272A' }}>
-              <TableHead style={{ color: '#A1A1AA' }}>Title</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>YouTube ID</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Order</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Actions</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Title</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>YouTube ID</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Order</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {videos.map((video) => (
               <TableRow key={video.id} style={{ borderColor: '#27272A' }}>
                 <TableCell style={{ color: '#FAFAFA' }}>{video.title}</TableCell>
-                <TableCell style={{ color: '#A1A1AA' }}>{video.youtube_id}</TableCell>
+                <TableCell style={{ color: '#e8e8e8ff' }}>{video.youtube_id}</TableCell>
                 <TableCell style={{ color: '#FAFAFA' }}>{video.order}</TableCell>
                 <TableCell>
                   <Button
@@ -413,7 +413,7 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
           </TableBody>
         </Table>
         {videos.length === 0 && (
-          <div className="text-center py-8" style={{ color: '#A1A1AA' }}>No videos added yet</div>
+          <div className="text-center py-8" style={{ color: '#e8e8e8ff' }}>No videos added yet</div>
         )}
       </CardContent>
     </Card>
@@ -513,18 +513,18 @@ const TestimonialsTab = ({ testimonials, onAdd, onDelete }) => {
         <Table>
           <TableHeader>
             <TableRow style={{ borderColor: '#27272A' }}>
-              <TableHead style={{ color: '#A1A1AA' }}>Name</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Role</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Content</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Rating</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Actions</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Name</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Role</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Content</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Rating</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {testimonials.map((testimonial) => (
               <TableRow key={testimonial.id} style={{ borderColor: '#27272A' }}>
                 <TableCell style={{ color: '#FAFAFA' }}>{testimonial.name}</TableCell>
-                <TableCell style={{ color: '#A1A1AA' }}>{testimonial.role}</TableCell>
+                <TableCell style={{ color: '#e8e8e8ff' }}>{testimonial.role}</TableCell>
                 <TableCell style={{ color: '#FAFAFA' }}>{testimonial.content.substring(0, 50)}...</TableCell>
                 <TableCell>
                   <div className="flex gap-1">
@@ -548,7 +548,7 @@ const TestimonialsTab = ({ testimonials, onAdd, onDelete }) => {
           </TableBody>
         </Table>
         {testimonials.length === 0 && (
-          <div className="text-center py-8" style={{ color: '#A1A1AA' }}>No testimonials added yet</div>
+          <div className="text-center py-8" style={{ color: '#e8e8e8ff' }}>No testimonials added yet</div>
         )}
       </CardContent>
     </Card>
@@ -565,21 +565,21 @@ const EnquiriesTab = ({ enquiries }) => {
         <Table>
           <TableHeader>
             <TableRow style={{ borderColor: '#27272A' }}>
-              <TableHead style={{ color: '#A1A1AA' }}>Name</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Email</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Contact</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Comment</TableHead>
-              <TableHead style={{ color: '#A1A1AA' }}>Date</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Name</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Email</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Contact</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Comment</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Date</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {enquiries.map((enquiry) => (
               <TableRow key={enquiry.id} style={{ borderColor: '#27272A' }}>
                 <TableCell style={{ color: '#FAFAFA' }}>{enquiry.name}</TableCell>
-                <TableCell style={{ color: '#A1A1AA' }}>{enquiry.email}</TableCell>
+                <TableCell style={{ color: '#e8e8e8ff' }}>{enquiry.email}</TableCell>
                 <TableCell style={{ color: '#FAFAFA' }}>{enquiry.contact}</TableCell>
                 <TableCell style={{ color: '#FAFAFA' }}>{enquiry.comment.substring(0, 50)}...</TableCell>
-                <TableCell style={{ color: '#A1A1AA' }}>
+                <TableCell style={{ color: '#e8e8e8ff' }}>
                   {new Date(enquiry.created_at).toLocaleDateString()}
                 </TableCell>
               </TableRow>
@@ -587,7 +587,7 @@ const EnquiriesTab = ({ enquiries }) => {
           </TableBody>
         </Table>
         {enquiries.length === 0 && (
-          <div className="text-center py-8" style={{ color: '#A1A1AA' }}>No enquiries yet</div>
+          <div className="text-center py-8" style={{ color: '#e8e8e8ff' }}>No enquiries yet</div>
         )}
       </CardContent>
     </Card>

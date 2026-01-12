@@ -55,7 +55,7 @@ const HeroSection = () => {
           
           <motion.p
             className="text-xl sm:text-2xl max-w-3xl mx-auto"
-            style={{ color: '#A1A1AA', fontWeight: '300' }}
+            style={{ color: '#e8e8e8ff', fontWeight: '300' }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
@@ -67,7 +67,7 @@ const HeroSection = () => {
             onClick={scrollToEnquiry}
             className="group inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-lg relative overflow-hidden"
             style={{
-              background: '#FFF',
+              background: '#e8e8e8ff',
               color: '#000',
               border: '2px solid #000'
             }}

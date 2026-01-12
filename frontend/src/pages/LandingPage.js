@@ -56,11 +56,11 @@ const LandingPage = () => {
     <div className="min-h-screen">
       <Navbar />
       <HeroSection />
-      <AboutSection />
       {shortVideos.length > 0 && <ShortVideosSection videos={shortVideos} />}
       {longVideos.length > 0 && <LongVideosSection videos={longVideos} />}
       <ServicesSection />
       {testimonials.length > 0 && <TestimonialsSection testimonials={testimonials} />}
+      <AboutSection />
       <EnquirySection onSubmit={handleEnquirySubmit} />
       <Footer />
     </div>

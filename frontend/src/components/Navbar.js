@@ -60,7 +60,7 @@ const Navbar = () => {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="text-base font-medium transition-all duration-300 relative group"
-                style={{ color: '#A1A1AA' }}
+                style={{ color: '#e8e8e8ff' }}
                 data-testid={`nav-link-${item.id}`}
               >
                 <span className="group-hover:text-white transition-colors">{item.name}</span>
@@ -78,13 +78,13 @@ const Navbar = () => {
             onClick={() => scrollToSection('enquiry-section')}
             className="hidden md:block px-6 py-2.5 rounded-full font-semibold relative overflow-hidden group"
             style={{
-              background: '#FFF',
+              background: '#F59E0B',
               color: '#000',
               border: '2px solid #000'
             }}
             data-testid="nav-cta-button"
           >
-            <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+            <span className="absolute inset-0 bg-gradient-to-b from-[#e8e8e8ff] to-[#e8e8e8ff] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
             <span className="relative z-10">Get Started</span>
           </motion.button>
         </div>

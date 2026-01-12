@@ -58,7 +58,7 @@ const TestimonialsSection = ({ testimonials }) => {
           >
             What Clients Say
           </h2>
-          <p className="text-lg" style={{ color: '#A1A1AA' }}>
+          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
             Testimonials from our satisfied partners
           </p>
         </motion.div>
@@ -113,7 +113,7 @@ const TestimonialsSection = ({ testimonials }) => {
                       {testimonial.name}
                     </h4>
                     {testimonial.role && (
-                      <p className="text-sm" style={{ color: '#A1A1AA' }}>
+                      <p className="text-sm" style={{ color: '#e8e8e8ff' }}>
                         {testimonial.role}
                       </p>
                     )}

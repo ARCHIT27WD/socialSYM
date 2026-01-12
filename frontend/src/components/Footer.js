@@ -24,7 +24,7 @@ const Footer = () => {
               alt="Soccial Symphony"
               className="h-16 w-auto"
             />
-            <p className="text-sm leading-relaxed" style={{ color: '#A1A1AA' }}>
+            <p className="text-sm leading-relaxed" style={{ color: '#e8e8e8ff' }}>
               Creating powerful connections between people, brands, and emotions.
             </p>
           </div>
@@ -45,7 +45,7 @@ const Footer = () => {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="block text-sm transition-colors duration-300 hover:text-white"
-                  style={{ color: '#A1A1AA' }}
+                  style={{ color: '#e8e8e8ff' }}
                   data-testid={`footer-link-${item.id}`}
                 >
                   {item.name}
@@ -116,7 +116,7 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="pt-8 border-t" style={{ borderColor: '#27272A' }}>
-          <p className="text-center text-sm" style={{ color: '#A1A1AA' }}>
+          <p className="text-center text-sm" style={{ color: '#e8e8e8ff' }}>
             © 2026 Soccial Symphony. All rights reserved. | Co-founded by Neeraj Vaid & Pijush Singha
           </p>
         </div>

@@ -24,6 +24,11 @@ const LongVideosSection = ({ videos }) => {
     return `https://www.youtube.com/watch?v=${youtubeId}`;
   };
 
+  // Get thumbnail - use custom if available, otherwise use YouTube's auto-generated
+  const getThumbnail = (video) => {
+    return video.thumbnail_url || getYouTubeThumbnail(video.youtube_id);
+  };
+
   return (
     <section
       ref={ref}
@@ -80,9 +85,9 @@ const LongVideosSection = ({ videos }) => {
                 }}
               >
                 <div className="relative" style={{ aspectRatio: '16/9' }}>
-                  {/* YouTube Thumbnail */}
+                  {/* Video Thumbnail - Custom or YouTube Auto */}
                   <img
-                    src={getYouTubeThumbnail(video.youtube_id)}
+                    src={getThumbnail(video)}
                     alt={video.title}
                     loading="lazy"
                     className="w-full h-full object-cover"
@@ -91,7 +96,7 @@ const LongVideosSection = ({ videos }) => {
                       transition: 'filter 0.3s ease'
                     }}
                     onError={(e) => {
-                      // Fallback to hqdefault if maxresdefault fails
+                      // Fallback to hqdefault if custom or maxresdefault fails
                       e.target.src = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
                     }}
                   />

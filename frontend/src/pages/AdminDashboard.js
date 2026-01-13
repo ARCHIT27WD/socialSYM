@@ -336,15 +336,15 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
 
 const LongVideosTab = ({ videos, onAdd, onDelete }) => {
   const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState({ title: '', youtube_id: '', order: 0 });
+  const [formData, setFormData] = useState({ title: '', youtube_id: '', thumbnail_url: '', order: 0 });
 
   const handleSubmit = () => {
     if (!formData.title || !formData.youtube_id) {
-      toast.error('Please fill all fields');
+      toast.error('Please fill all required fields');
       return;
     }
     onAdd(formData);
-    setFormData({ title: '', youtube_id: '', order: 0 });
+    setFormData({ title: '', youtube_id: '', thumbnail_url: '', order: 0 });
     setOpen(false);
   };
 
@@ -366,7 +366,7 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
               </DialogHeader>
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="title">Title</Label>
+                  <Label htmlFor="title">Title *</Label>
                   <Input
                     id="title"
                     value={formData.title}
@@ -376,7 +376,7 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="youtube_id">YouTube Video ID</Label>
+                  <Label htmlFor="youtube_id">YouTube Video ID *</Label>
                   <Input
                     id="youtube_id"
                     value={formData.youtube_id}
@@ -384,6 +384,18 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
                     data-testid="long-video-id-input"
                     style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: '#FAFAFA' }}
                   />
+                </div>
+                <div>
+                  <Label htmlFor="thumbnail_url">Thumbnail URL</Label>
+                  <Input
+                    id="thumbnail_url"
+                    value={formData.thumbnail_url}
+                    onChange={(e) => setFormData({ ...formData, thumbnail_url: e.target.value })}
+                    data-testid="long-video-thumbnail-input"
+                    placeholder="https://example.com/image.jpg"
+                    style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: '#FAFAFA' }}
+                  />
+                  <p className="text-xs mt-1" style={{ color: '#e8e8e8ff' }}>Optional: Custom thumbnail (YouTube auto-thumbnail used if empty)</p>
                 </div>
                 <div>
                   <Label htmlFor="order">Order</Label>
@@ -409,6 +421,7 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
             <TableRow style={{ borderColor: '#27272A' }}>
               <TableHead style={{ color: '#e8e8e8ff' }}>Title</TableHead>
               <TableHead style={{ color: '#e8e8e8ff' }}>YouTube ID</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Thumbnail</TableHead>
               <TableHead style={{ color: '#e8e8e8ff' }}>Order</TableHead>
               <TableHead style={{ color: '#e8e8e8ff' }}>Actions</TableHead>
             </TableRow>
@@ -418,6 +431,13 @@ const LongVideosTab = ({ videos, onAdd, onDelete }) => {
               <TableRow key={video.id} style={{ borderColor: '#27272A' }}>
                 <TableCell style={{ color: '#FAFAFA' }}>{video.title}</TableCell>
                 <TableCell style={{ color: '#e8e8e8ff' }}>{video.youtube_id}</TableCell>
+                <TableCell style={{ color: '#e8e8e8ff' }}>
+                  {video.thumbnail_url ? (
+                    <img src={video.thumbnail_url} alt={video.title} className="w-16 h-9 object-cover rounded" />
+                  ) : (
+                    <span className="text-xs">YouTube auto</span>
+                  )}
+                </TableCell>
                 <TableCell style={{ color: '#FAFAFA' }}>{video.order}</TableCell>
                 <TableCell>
                   <Button

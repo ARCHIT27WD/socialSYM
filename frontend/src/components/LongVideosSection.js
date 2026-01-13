@@ -16,12 +16,39 @@ const LongVideosSection = ({ videos }) => {
     setVisibleCount(prev => Math.min(prev + 4, videos.length));
   };
 
+  // Extract YouTube video ID from various URL formats or return as-is if already an ID
+  const extractYouTubeId = (input) => {
+    if (!input) return null;
+    
+    // If it's already just an ID (11 characters, alphanumeric with - and _)
+    if (/^[a-zA-Z0-9_-]{11}$/.test(input)) {
+      return input;
+    }
+    
+    // Try to extract from URL
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/)([a-zA-Z0-9_-]{11})/,
+      /[?&]v=([a-zA-Z0-9_-]{11})/
+    ];
+    
+    for (const pattern of patterns) {
+      const match = input.match(pattern);
+      if (match && match[1]) {
+        return match[1];
+      }
+    }
+    
+    return input; // Return as-is if no match found
+  };
+
   const getYouTubeThumbnail = (youtubeId) => {
-    return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+    const id = extractYouTubeId(youtubeId);
+    return `https://img.youtube.com/vi/${id}/maxresdefault.jpg`;
   };
 
   const getYouTubeUrl = (youtubeId) => {
-    return `https://www.youtube.com/watch?v=${youtubeId}`;
+    const id = extractYouTubeId(youtubeId);
+    return `https://www.youtube.com/watch?v=${id}`;
   };
 
   // Get thumbnail - use custom if available, otherwise use YouTube's auto-generated

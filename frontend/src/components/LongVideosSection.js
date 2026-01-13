@@ -21,8 +21,8 @@ const LongVideosSection = ({ videos }) => {
     return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
   };
 
-  const handlePlayVideo = (videoId) => {
-    setPlayingVideo(videoId);
+  const getYouTubeUrl = (youtubeId) => {
+    return `https://www.youtube.com/watch?v=${youtubeId}`;
   };
 
   return (
@@ -61,8 +61,11 @@ const LongVideosSection = ({ videos }) => {
               className="group"
               data-testid={`long-video-${index}`}
             >
-              <div
-                className="rounded-2xl overflow-hidden"
+              <a
+                href={getYouTubeUrl(video.youtube_id)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block rounded-2xl overflow-hidden"
                 style={{
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   background: 'rgba(255, 255, 255, 0.02)',
@@ -78,63 +81,56 @@ const LongVideosSection = ({ videos }) => {
                 }}
               >
                 <div className="relative" style={{ aspectRatio: '16/9' }}>
-                  {playingVideo === video.id ? (
-                    <iframe
-                      width="100%"
-                      height="100%"
-                      src={`https://www.youtube.com/embed/${video.youtube_id}?autoplay=1`}
-                      title={video.title}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                      allowFullScreen
-                    />
-                  ) : (
-                    <div 
-                      className="relative w-full h-full cursor-pointer"
-                      onClick={() => handlePlayVideo(video.id)}
+                  {/* YouTube Thumbnail */}
+                  <img
+                    src={getYouTubeThumbnail(video.youtube_id)}
+                    alt={video.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover"
+                    style={{
+                      filter: 'brightness(0.85)',
+                      transition: 'filter 0.3s ease'
+                    }}
+                    onError={(e) => {
+                      // Fallback to hqdefault if maxresdefault fails
+                      e.target.src = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
+                    }}
+                  />
+                  
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+                  
+                  {/* YouTube logo top right */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <YoutubeLogo size={40} weight="fill" style={{ color: '#FF0000' }} />
+                  </div>
+                  
+                  {/* Play button */}
+                  <div className="absolute inset-0 flex items-center justify-center z-10">
+                    <div
+                      className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
+                      style={{ background: '#FFF', border: '3px solid #000' }}
                     >
-                      {/* YouTube Thumbnail */}
-                      <img
-                        src={getYouTubeThumbnail(video.youtube_id)}
-                        alt={video.title}
-                        loading="lazy"
-                        className="w-full h-full object-cover"
-                        style={{
-                          filter: 'brightness(0.8)',
-                          transition: 'filter 0.3s ease'
-                        }}
-                      />
-                      
-                      {/* Dark overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                      
-                      {/* YouTube logo top right */}
-                      <div className="absolute top-4 right-4">
-                        <YoutubeLogo size={32} weight="fill" style={{ color: '#FF0000' }} />
-                      </div>
-                      
-                      {/* Play button */}
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div
-                          className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
-                          style={{ background: '#FFF', border: '3px solid #000' }}
-                        >
-                          <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
-                          <Play size={36} weight="fill" color="#000" className="relative z-10" />
-                        </div>
-                      </div>
+                      <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
+                      <Play size={36} weight="fill" color="#000" className="relative z-10" />
                     </div>
-                  )}
+                  </div>
+                  
+                  {/* Video duration badge (optional) */}
+                  <div className="absolute bottom-4 right-4 px-2 py-1 rounded bg-black/80 text-white text-xs font-bold">
+                    YouTube
+                  </div>
                 </div>
+                
                 <div className="p-6">
                   <h3
-                    className="text-xl font-bold"
+                    className="text-xl font-bold group-hover:text-[#F59E0B] transition-colors"
                     style={{ color: '#FAFAFA' }}
                   >
                     {video.title}
                   </h3>
                 </div>
-              </div>
+              </a>
             </motion.div>
           ))}
         </div>

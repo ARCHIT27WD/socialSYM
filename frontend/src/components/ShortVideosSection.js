@@ -8,15 +8,6 @@ const ShortVideosSection = ({ videos }) => {
 
   if (!videos || videos.length === 0) return null;
 
-  const getInstagramEmbedUrl = (url) => {
-    // Extract Instagram post ID and create embed URL
-    const match = url.match(/\/reel\/([A-Za-z0-9_-]+)/);
-    if (match) {
-      return `${url}embed`;
-    }
-    return url;
-  };
-
   return (
     <section
       ref={ref}
@@ -67,13 +58,28 @@ const ShortVideosSection = ({ videos }) => {
                   className="group block relative rounded-2xl overflow-hidden"
                   style={{
                     aspectRatio: '9/16',
-                    background: 'linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)',
+                    background: '#1a1a1a',
                     border: '2px solid rgba(245, 158, 11, 0.3)',
                     boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
                   }}
                 >
-                  {/* Instagram gradient background */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 opacity-20" />
+                  {/* Thumbnail or default background */}
+                  {video.thumbnail_url ? (
+                    <img
+                      src={video.thumbnail_url}
+                      alt={video.title}
+                      loading="lazy"
+                      className="absolute inset-0 w-full h-full object-cover"
+                      style={{
+                        filter: 'brightness(0.7)',
+                        transition: 'filter 0.3s ease'
+                      }}
+                      onMouseEnter={(e) => e.target.style.filter = 'brightness(0.9)'}
+                      onMouseLeave={(e) => e.target.style.filter = 'brightness(0.7)'}
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900" />
+                  )}
                   
                   {/* Dark overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
@@ -102,6 +108,10 @@ const ShortVideosSection = ({ videos }) => {
                     >
                       {video.title}
                     </h3>
+                    <div className="flex items-center gap-2 text-sm" style={{ color: '#F59E0B' }}>
+                      <InstagramLogo size={16} weight="fill" />
+                      <span>View on Instagram</span>
+                    </div>
                   </div>
                 </a>
               </motion.div>

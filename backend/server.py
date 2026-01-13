@@ -33,12 +33,14 @@ class ShortVideo(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     title: str
     url: str
+    thumbnail_url: Optional[str] = ""
     order: int = 0
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
 
 class ShortVideoCreate(BaseModel):
     title: str
     url: str
+    thumbnail_url: Optional[str] = ""
     order: int = 0
 
 class LongVideo(BaseModel):

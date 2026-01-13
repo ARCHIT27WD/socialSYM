@@ -102,10 +102,6 @@ const ShortVideosSection = ({ videos }) => {
                     >
                       {video.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-sm" style={{ color: '#F59E0B' }}>
-                      <InstagramLogo size={16} weight="fill" />
-                      <span>View on Instagram</span>
-                    </div>
                   </div>
                 </a>
               </motion.div>

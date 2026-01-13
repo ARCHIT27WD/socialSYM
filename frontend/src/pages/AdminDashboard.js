@@ -205,15 +205,15 @@ const AdminDashboard = () => {
 
 const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
   const [open, setOpen] = useState(false);
-  const [formData, setFormData] = useState({ title: '', url: '', order: 0 });
+  const [formData, setFormData] = useState({ title: '', url: '', thumbnail_url: '', order: 0 });
 
   const handleSubmit = () => {
     if (!formData.title || !formData.url) {
-      toast.error('Please fill all fields');
+      toast.error('Please fill all required fields');
       return;
     }
     onAdd(formData);
-    setFormData({ title: '', url: '', order: 0 });
+    setFormData({ title: '', url: '', thumbnail_url: '', order: 0 });
     setOpen(false);
   };
 
@@ -234,7 +234,7 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
               </DialogHeader>
               <div className="space-y-4">
                 <div>
-                  <Label htmlFor="title">Title</Label>
+                  <Label htmlFor="title">Title *</Label>
                   <Input
                     id="title"
                     value={formData.title}
@@ -244,14 +244,27 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
                   />
                 </div>
                 <div>
-                  <Label htmlFor="url">Video URL</Label>
+                  <Label htmlFor="url">Video URL *</Label>
                   <Input
                     id="url"
                     value={formData.url}
                     onChange={(e) => setFormData({ ...formData, url: e.target.value })}
                     data-testid="short-video-url-input"
+                    placeholder="https://instagram.com/reel/..."
                     style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: '#FAFAFA' }}
                   />
+                </div>
+                <div>
+                  <Label htmlFor="thumbnail_url">Thumbnail URL</Label>
+                  <Input
+                    id="thumbnail_url"
+                    value={formData.thumbnail_url}
+                    onChange={(e) => setFormData({ ...formData, thumbnail_url: e.target.value })}
+                    data-testid="short-video-thumbnail-input"
+                    placeholder="https://example.com/image.jpg"
+                    style={{ background: 'rgba(255,255,255,0.05)', borderColor: 'rgba(255,255,255,0.1)', color: '#FAFAFA' }}
+                  />
+                  <p className="text-xs mt-1" style={{ color: '#e8e8e8ff' }}>Optional: Add image URL for reel thumbnail</p>
                 </div>
                 <div>
                   <Label htmlFor="order">Order</Label>
@@ -277,6 +290,7 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
             <TableRow style={{ borderColor: '#27272A' }}>
               <TableHead style={{ color: '#e8e8e8ff' }}>Title</TableHead>
               <TableHead style={{ color: '#e8e8e8ff' }}>URL</TableHead>
+              <TableHead style={{ color: '#e8e8e8ff' }}>Thumbnail</TableHead>
               <TableHead style={{ color: '#e8e8e8ff' }}>Order</TableHead>
               <TableHead style={{ color: '#e8e8e8ff' }}>Actions</TableHead>
             </TableRow>
@@ -289,6 +303,13 @@ const ShortVideosTab = ({ videos, onAdd, onDelete }) => {
                   <a href={video.url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
                     {video.url.substring(0, 40)}...
                   </a>
+                </TableCell>
+                <TableCell style={{ color: '#e8e8e8ff' }}>
+                  {video.thumbnail_url ? (
+                    <img src={video.thumbnail_url} alt={video.title} className="w-12 h-16 object-cover rounded" />
+                  ) : (
+                    <span className="text-xs">No thumbnail</span>
+                  )}
                 </TableCell>
                 <TableCell style={{ color: '#FAFAFA' }}>{video.order}</TableCell>
                 <TableCell>

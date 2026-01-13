@@ -1,12 +1,21 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Play } from '@phosphor-icons/react';
+import { Play, InstagramLogo } from '@phosphor-icons/react';
 
 const ShortVideosSection = ({ videos }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   if (!videos || videos.length === 0) return null;
+
+  const getInstagramEmbedUrl = (url) => {
+    // Extract Instagram post ID and create embed URL
+    const match = url.match(/\/reel\/([A-Za-z0-9_-]+)/);
+    if (match) {
+      return `${url}embed`;
+    }
+    return url;
+  };
 
   return (
     <section
@@ -24,11 +33,11 @@ const ShortVideosSection = ({ videos }) => {
         >
           <h2
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
-            style={{ fontFamily: 'Playfair Display, serif', color: '#e8e8e8ff' }}
+            style={{ fontFamily: 'Playfair Display, serif', color: '#F59E0B' }}
           >
             Short Reels
           </h2>
-          <p className="text-lg" style={{ color: '#F59E0B' }}>
+          <p className="text-lg" style={{ color: '#A1A1AA' }}>
             Quick glimpses into our creative world
           </p>
         </motion.div>
@@ -58,30 +67,45 @@ const ShortVideosSection = ({ videos }) => {
                   className="group block relative rounded-2xl overflow-hidden"
                   style={{
                     aspectRatio: '9/16',
-                    background: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    backdropFilter: 'blur(10px)'
+                    background: 'linear-gradient(135deg, #833AB4 0%, #FD1D1D 50%, #F77737 100%)',
+                    border: '2px solid rgba(245, 158, 11, 0.3)',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
                   }}
                 >
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  {/* Instagram gradient background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-purple-600 via-pink-500 to-orange-400 opacity-20" />
                   
+                  {/* Dark overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  
+                  {/* Instagram icon at top */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <InstagramLogo size={32} weight="fill" className="text-white opacity-80" />
+                  </div>
+                  
+                  {/* Play button */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div
-                      className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
-                      style={{ background: '#e8e8e8ff', border: '2px solid #000' }}
+                      className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
+                      style={{ background: '#FFF', border: '3px solid #000' }}
                     >
                       <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
-                      <Play size={32} weight="fill" color="#000" className="relative z-10" />
+                      <Play size={36} weight="fill" color="#000" className="relative z-10" />
                     </div>
                   </div>
                   
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
+                  {/* Title */}
+                  <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
                     <h3
-                      className="text-lg font-bold"
+                      className="text-lg font-bold mb-2"
                       style={{ color: '#FAFAFA' }}
                     >
                       {video.title}
                     </h3>
+                    <div className="flex items-center gap-2 text-sm" style={{ color: '#F59E0B' }}>
+                      <InstagramLogo size={16} weight="fill" />
+                      <span>View on Instagram</span>
+                    </div>
                   </div>
                 </a>
               </motion.div>

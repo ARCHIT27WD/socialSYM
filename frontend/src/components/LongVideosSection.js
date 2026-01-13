@@ -124,7 +124,8 @@ const LongVideosSection = ({ videos }) => {
                     }}
                     onError={(e) => {
                       // Fallback to hqdefault if custom or maxresdefault fails
-                      e.target.src = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
+                      const id = extractYouTubeId(video.youtube_id);
+                      e.target.src = `https://img.youtube.com/vi/${id}/hqdefault.jpg`;
                     }}
                   />
                   

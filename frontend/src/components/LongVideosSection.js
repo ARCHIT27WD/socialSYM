@@ -1,12 +1,11 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Play, YoutubeLogo } from '@phosphor-icons/react';
+import { YoutubeLogo } from '@phosphor-icons/react';
 
 const LongVideosSection = ({ videos }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [visibleCount, setVisibleCount] = useState(4);
-  const [playingVideo, setPlayingVideo] = useState(null);
 
   if (!videos || videos.length === 0) return null;
 
@@ -15,10 +14,6 @@ const LongVideosSection = ({ videos }) => {
 
   const loadMore = () => {
     setVisibleCount(prev => Math.min(prev + 4, videos.length));
-  };
-
-  const getYouTubeThumbnail = (youtubeId) => {
-    return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
   };
 
   const getYouTubeUrl = (youtubeId) => {
@@ -65,67 +60,43 @@ const LongVideosSection = ({ videos }) => {
                 href={getYouTubeUrl(video.youtube_id)}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block rounded-2xl overflow-hidden"
+                className="block rounded-2xl overflow-hidden transition-all duration-300"
                 style={{
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  background: 'rgba(255, 255, 255, 0.02)',
-                  transition: 'all 0.3s ease'
+                  border: '2px solid rgba(255, 255, 255, 0.1)',
+                  background: 'rgba(255, 255, 255, 0.05)',
+                  backdropFilter: 'blur(10px)'
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.5)';
-                  e.currentTarget.style.boxShadow = '0 0 30px rgba(245, 158, 11, 0.2)';
+                  e.currentTarget.style.borderColor = 'rgba(245, 158, 11, 0.6)';
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(245, 158, 11, 0.3)';
+                  e.currentTarget.style.transform = 'translateY(-4px)';
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                   e.currentTarget.style.boxShadow = 'none';
+                  e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                <div className="relative" style={{ aspectRatio: '16/9' }}>
-                  {/* YouTube Thumbnail */}
-                  <img
-                    src={getYouTubeThumbnail(video.youtube_id)}
-                    alt={video.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover"
-                    style={{
-                      filter: 'brightness(0.85)',
-                      transition: 'filter 0.3s ease'
-                    }}
-                    onError={(e) => {
-                      // Fallback to hqdefault if maxresdefault fails
-                      e.target.src = `https://img.youtube.com/vi/${video.youtube_id}/hqdefault.jpg`;
-                    }}
-                  />
-                  
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  
-                  {/* YouTube logo top right */}
-                  <div className="absolute top-4 right-4 z-10">
-                    <YoutubeLogo size={40} weight="fill" style={{ color: '#FF0000' }} />
+                <div 
+                  className="flex flex-col items-center justify-center p-12"
+                  style={{ aspectRatio: '16/9' }}
+                >
+                  {/* YouTube Logo */}
+                  <div className="mb-6 transition-all duration-300 group-hover:scale-110">
+                    <YoutubeLogo 
+                      size={120} 
+                      weight="fill" 
+                      style={{ color: '#FF0000' }}
+                    />
                   </div>
                   
-                  {/* Play button */}
-                  <div className="absolute inset-0 flex items-center justify-center z-10">
-                    <div
-                      className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
-                      style={{ background: '#FFF', border: '3px solid #000' }}
-                    >
-                      <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
-                      <Play size={36} weight="fill" color="#000" className="relative z-10" />
-                    </div>
-                  </div>
-                  
-                  {/* Video duration badge (optional) */}
-                  <div className="absolute bottom-4 right-4 px-2 py-1 rounded bg-black/80 text-white text-xs font-bold">
-                    YouTube
-                  </div>
-                </div>
-                
-                <div className="p-6">
+                  {/* Video Title */}
                   <h3
-                    className="text-xl font-bold group-hover:text-[#F59E0B] transition-colors"
-                    style={{ color: '#FAFAFA' }}
+                    className="text-2xl font-bold text-center transition-colors duration-300"
+                    style={{ 
+                      color: '#FAFAFA',
+                      fontFamily: 'Playfair Display, serif'
+                    }}
                   >
                     {video.title}
                   </h3>

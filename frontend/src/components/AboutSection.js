@@ -24,12 +24,12 @@ const AboutSection = () => {
           >
             <h2
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
-              style={{ fontFamily: 'Playfair Display, serif', color: '#e8e8e8ff' }}
+              style={{ fontFamily: 'Playfair Display, serif', color: '#F59E0B' }}
             >
               Let's create a symphony of success together.
             </h2>
             
-            <div className="space-y-4" style={{ color: '#e8e8e8ff', fontSize: '1.125rem', lineHeight: '1.75' }}>
+            <div className="space-y-4" style={{ color: '#A1A1AA', fontSize: '1.125rem', lineHeight: '1.75' }}>
               <p>
                 <span style={{ color: '#FAFAFA', fontWeight: '600' }}>Soccial Symphony</span> - co-founded by{' '}
                 <span style={{ color: '#F59E0B' }}>Neeraj Vaid</span> and{' '}
@@ -64,9 +64,12 @@ const AboutSection = () => {
                 <img
                   src="/team.jpg"
                   alt="Soccial Symphony"
-                  className="w-full h-full object-contain"
+                  loading="lazy"
+                  className="w-full h-full object-cover rounded-2xl"
                   style={{ 
-                    filter: 'saturate(1.2) contrast(1.1) drop-shadow(0 0 30px rgba(0, 0, 0, 0.8))'
+                    filter: 'saturate(1.1) contrast(1.05)',
+                    transform: 'translateZ(0)',
+                    willChange: 'transform'
                   }}
                 />
               </div>

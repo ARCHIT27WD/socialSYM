@@ -5,28 +5,28 @@ import { Microphone, VideoCamera, Image, InstagramLogo } from '@phosphor-icons/r
 const services = [
   {
     title: 'Podcast Production',
-    image: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1589903308904-1010c2294adc?w=800&q=75&auto=format',
     icon: Microphone,
     colSpan: 'md:col-span-2',
     description: 'Professional podcast recording, editing, and production services'
   },
   {
     title: 'Video Editing',
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=600&q=75&auto=format',
     icon: VideoCamera,
     colSpan: 'md:col-span-1',
     description: 'Creative video editing for all platforms'
   },
   {
     title: 'YouTube Thumbnails',
-    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=2074',
+    image: 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&q=75&auto=format',
     icon: Image,
     colSpan: 'md:col-span-1',
     description: 'Eye-catching thumbnails that drive clicks'
   },
   {
     title: 'Social Media Handling',
-    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?q=80&w=2070',
+    image: 'https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=800&q=75&auto=format',
     icon: InstagramLogo,
     colSpan: 'md:col-span-2',
     description: 'Complete social media management and content strategy'
@@ -58,7 +58,7 @@ const ServicesSection = () => {
           >
             Our Services
           </h2>
-          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
+          <p className="text-lg" style={{ color: '#A1A1AA' }}>
             Comprehensive solutions for your creative needs
           </p>
         </motion.div>
@@ -81,10 +81,13 @@ const ServicesSection = () => {
                 data-testid={`service-${index}`}
               >
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${service.image})`,
-                    filter: 'brightness(0.4)'
+                    filter: 'brightness(0.4)',
+                    transform: 'translateZ(0)',
+                    willChange: 'transform',
+                    transition: 'transform 0.7s ease'
                   }}
                 />
                 
@@ -94,7 +97,7 @@ const ServicesSection = () => {
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
                     style={{
-                      background: '#e8e8e8ff',
+                      background: '#FFF',
                       border: '2px solid #000'
                     }}
                   >
@@ -109,7 +112,7 @@ const ServicesSection = () => {
                     {service.title}
                   </h3>
                   
-                  <p className="text-base" style={{ color: '#e8e8e8ff' }}>
+                  <p className="text-base" style={{ color: '#A1A1AA' }}>
                     {service.description}
                   </p>
                 </div>

@@ -1,10 +1,12 @@
 import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Play, YoutubeLogo } from '@phosphor-icons/react';
 
 const LongVideosSection = ({ videos }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [visibleCount, setVisibleCount] = useState(4);
+  const [playingVideo, setPlayingVideo] = useState(null);
 
   if (!videos || videos.length === 0) return null;
 
@@ -13,6 +15,14 @@ const LongVideosSection = ({ videos }) => {
 
   const loadMore = () => {
     setVisibleCount(prev => Math.min(prev + 4, videos.length));
+  };
+
+  const getYouTubeThumbnail = (youtubeId) => {
+    return `https://img.youtube.com/vi/${youtubeId}/maxresdefault.jpg`;
+  };
+
+  const handlePlayVideo = (videoId) => {
+    setPlayingVideo(videoId);
   };
 
   return (
@@ -36,7 +46,7 @@ const LongVideosSection = ({ videos }) => {
           >
             Featured Videos
           </h2>
-          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
+          <p className="text-lg" style={{ color: '#A1A1AA' }}>
             Dive deep into our portfolio
           </p>
         </motion.div>
@@ -67,16 +77,54 @@ const LongVideosSection = ({ videos }) => {
                   e.currentTarget.style.boxShadow = 'none';
                 }}
               >
-                <div style={{ aspectRatio: '16/9' }}>
-                  <iframe
-                    width="100%"
-                    height="100%"
-                    src={`https://www.youtube.com/embed/${video.youtube_id}`}
-                    title={video.title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
+                <div className="relative" style={{ aspectRatio: '16/9' }}>
+                  {playingVideo === video.id ? (
+                    <iframe
+                      width="100%"
+                      height="100%"
+                      src={`https://www.youtube.com/embed/${video.youtube_id}?autoplay=1`}
+                      title={video.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <div 
+                      className="relative w-full h-full cursor-pointer"
+                      onClick={() => handlePlayVideo(video.id)}
+                    >
+                      {/* YouTube Thumbnail */}
+                      <img
+                        src={getYouTubeThumbnail(video.youtube_id)}
+                        alt={video.title}
+                        loading="lazy"
+                        className="w-full h-full object-cover"
+                        style={{
+                          filter: 'brightness(0.8)',
+                          transition: 'filter 0.3s ease'
+                        }}
+                      />
+                      
+                      {/* Dark overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                      
+                      {/* YouTube logo top right */}
+                      <div className="absolute top-4 right-4">
+                        <YoutubeLogo size={32} weight="fill" style={{ color: '#FF0000' }} />
+                      </div>
+                      
+                      {/* Play button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <div
+                          className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
+                          style={{ background: '#FFF', border: '3px solid #000' }}
+                        >
+                          <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
+                          <Play size={36} weight="fill" color="#000" className="relative z-10" />
+                        </div>
+                      </div>
+                    </div>
+                  )}
                 </div>
                 <div className="p-6">
                   <h3
@@ -104,7 +152,7 @@ const LongVideosSection = ({ videos }) => {
               whileTap={{ scale: 0.95 }}
               className="px-10 py-4 rounded-full font-bold text-lg relative overflow-hidden group"
               style={{
-                background: '#e8e8e8ff',
+                background: '#FFF',
                 border: '2px solid #000',
                 color: '#000'
               }}

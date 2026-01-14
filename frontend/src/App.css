@@ -24,8 +24,8 @@ code {
   font-family: 'Playfair Display', serif;
 }
 
-/* Optimize scrolling performance */
-* {
+/* Optimize scrolling performance - exclude fixed elements */
+.scroll-optimized {
   -webkit-transform: translateZ(0);
   transform: translateZ(0);
   -webkit-backface-visibility: hidden;

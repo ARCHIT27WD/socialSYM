@@ -26,9 +26,10 @@ const Navbar = () => {
       transition={{ duration: 0.5 }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: isScrolled ? 'rgba(5, 5, 5, 0.95)' : 'transparent',
-        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
-        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.1)' : 'none'
+        background: isScrolled ? 'rgba(5, 5, 5, 1)' : 'transparent',
+        backdropFilter: 'blur(20px)',
+        borderBottom: isScrolled ? '1px solid rgba(245, 158, 11, 0.3)' : 'none',
+        boxShadow: isScrolled ? '0 4px 20px rgba(0, 0, 0, 0.5)' : 'none'
       }}
       data-testid="navbar"
     >

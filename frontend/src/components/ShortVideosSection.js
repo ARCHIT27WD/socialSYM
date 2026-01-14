@@ -71,18 +71,24 @@ const ShortVideosSection = ({ videos }) => {
                       loading="lazy"
                       className="absolute inset-0 w-full h-full object-cover"
                       style={{
-                        filter: 'brightness(0.7)',
-                        transition: 'filter 0.3s ease'
+                        filter: 'brightness(0.95)',
+                        transition: 'filter 0.3s ease, transform 0.3s ease'
                       }}
-                      onMouseEnter={(e) => e.target.style.filter = 'brightness(0.9)'}
-                      onMouseLeave={(e) => e.target.style.filter = 'brightness(0.7)'}
+                      onMouseEnter={(e) => {
+                        e.target.style.filter = 'brightness(1)';
+                        e.target.style.transform = 'scale(1.05)';
+                      }}
+                      onMouseLeave={(e) => {
+                        e.target.style.filter = 'brightness(0.95)';
+                        e.target.style.transform = 'scale(1)';
+                      }}
                     />
                   ) : (
                     <div className="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900" />
                   )}
                   
-                  {/* Dark overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                  {/* Subtle dark overlay - only at bottom for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   
                   {/* Instagram icon at top */}
                   <div className="absolute top-4 right-4 z-10">

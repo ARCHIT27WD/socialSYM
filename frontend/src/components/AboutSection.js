@@ -24,7 +24,7 @@ const AboutSection = () => {
           >
             <h2
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
-              style={{ fontFamily: 'Playfair Display, serif', color: '#F59E0B' }}
+              style={{ fontFamily: 'Playfair Display, serif', color: '#FAFAFA' }}
             >
               Let's create a symphony of success together.
             </h2>

@@ -129,24 +129,24 @@ const TestimonialsSection = ({ testimonials }) => {
                 onClick={handlePrev}
                 className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.2)',
-                  border: '1px solid rgba(245, 158, 11, 0.5)'
+                  background: 'rgba(131, 131, 131, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.5)'
                 }}
                 data-testid="testimonials-prev-button"
               >
-                <CaretLeft size={24} weight="bold" color="#F59E0B" />
+                <CaretLeft size={24} weight="bold" color="#ffffffff" />
               </button>
 
               <button
                 onClick={handleNext}
                 className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.2)',
-                  border: '1px solid rgba(245, 158, 11, 0.5)'
+                  background: 'rgba(131, 131, 131, 0.2)',
+                  border: '1px solid rgba(255, 255, 255, 0.5)'
                 }}
                 data-testid="testimonials-next-button"
               >
-                <CaretRight size={24} weight="bold" color="#F59E0B" />
+                <CaretRight size={24} weight="bold" color="#ffffffff" />
               </button>
 
               <div className="flex justify-center gap-2 mt-8">

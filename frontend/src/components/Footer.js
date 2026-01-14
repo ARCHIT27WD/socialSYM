@@ -66,12 +66,12 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.1)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)'
+                  background: 'rgba(131, 131, 131, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
                 }}
                 data-testid="footer-instagram-link"
               >
-                <InstagramLogo size={24} weight="fill" color="#F59E0B" />
+                <InstagramLogo size={24} weight="fill" color="#fd4192e4" />
               </a>
               <a
                 href="https://youtube.com/@dreamwithneerajshow?si=yF_3qwxCnHOk6mMc"
@@ -79,12 +79,12 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.1)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)'
+                  background: 'rgba(131, 131, 131, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
                 }}
                 data-testid="footer-youtube-link"
               >
-                <YoutubeLogo size={24} weight="fill" color="#F59E0B" />
+                <YoutubeLogo size={24} weight="fill" color="#f31307ff" />
               </a>
               <a
                 href="https://www.linkedin.com/in/neerajvaid?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
@@ -92,23 +92,23 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.1)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)'
+                  background: 'rgba(131, 131, 131, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
                 }}
                 data-testid="footer-linkedin-link"
               >
-                <LinkedinLogo size={24} weight="fill" color="#F59E0B" />
+                <LinkedinLogo size={24} weight="fill" color="#4fa1ffff" />
               </a>
               <a
                 href="mailto:info@soccialsymphony.com"
                 className="w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110"
                 style={{
-                  background: 'rgba(245, 158, 11, 0.1)',
-                  border: '1px solid rgba(245, 158, 11, 0.3)'
+                  background: 'rgba(131, 131, 131, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.3)'
                 }}
                 data-testid="footer-email-link"
               >
-                <EnvelopeSimple size={24} weight="fill" color="#F59E0B" />
+                <EnvelopeSimple size={24} weight="fill" color="#3bd7f6ff" />
               </a>
             </div>
           </div>

@@ -99,6 +99,7 @@ const LongVideosSection = ({ videos }) => {
                 className="block rounded-2xl overflow-hidden"
                 style={{
                   border: '1px solid rgba(255, 255, 255, 0.1)',
+        
                   background: 'rgba(255, 255, 255, 0.02)',
                   transition: 'all 0.3s ease'
                 }}

@@ -27,8 +27,6 @@ const Navbar = () => {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
         background: isScrolled ? 'rgba(5, 5, 5, 1)' : 'transparent',
-        backdropFilter: 'blur(20px)',
-        borderBottom: isScrolled ? '1px solid rgba(245, 158, 11, 0.3)' : 'none',
         boxShadow: isScrolled ? '0 4px 20px rgba(0, 0, 0, 0.5)' : 'none'
       }}
       data-testid="navbar"
@@ -79,13 +77,13 @@ const Navbar = () => {
             onClick={() => scrollToSection('enquiry-section')}
             className="hidden md:block px-6 py-2.5 rounded-full font-semibold relative overflow-hidden group"
             style={{
-              background: '#F59E0B',
+              background: '#e8e8e8ff',
               color: '#000',
               border: '2px solid #000'
             }}
             data-testid="nav-cta-button"
           >
-            <span className="absolute inset-0 bg-gradient-to-b from-[#e8e8e8ff] to-[#e8e8e8ff] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
+            <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"></span>
             <span className="relative z-10">Get Started</span>
           </motion.button>
         </div>

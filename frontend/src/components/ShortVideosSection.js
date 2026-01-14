@@ -95,14 +95,18 @@ const ShortVideosSection = ({ videos }) => {
                     <InstagramLogo size={32} weight="fill" className="text-white opacity-80" />
                   </div>
                   
-                  {/* Play button */}
+                  {/* Play button - transparent glass effect */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div
-                      className="w-20 h-20 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
-                      style={{ background: '#FFF', border: '3px solid #000' }}
+                      className="w-16 h-16 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:bg-white/40"
+                      style={{ 
+                        background: 'rgba(255, 255, 255, 0.2)',
+                        backdropFilter: 'blur(10px)',
+                        border: '2px solid rgba(255, 255, 255, 0.3)',
+                        boxShadow: '0 4px 15px rgba(0, 0, 0, 0.2)'
+                      }}
                     >
-                      <span className="absolute inset-0 bg-gradient-to-b from-[#F59E0B] to-[#F59E0B] transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full"></span>
-                      <Play size={36} weight="fill" color="#000" className="relative z-10" />
+                      <Play size={28} weight="fill" color="rgba(255, 255, 255, 0.9)" className="relative z-10 ml-1" />
                     </div>
                   </div>
                   

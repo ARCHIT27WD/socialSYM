@@ -14,18 +14,24 @@ const HeroSection = () => {
       className="relative min-h-screen w-full overflow-hidden"
       data-testid="hero-section"
     >
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{
-          backgroundImage: "url('/Fav.jpg')", // same as About
-        }}
+      {/* ================= BACKGROUND VIDEO (DESKTOP) ================= */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover brightness-90 contrast-95"
+        src="/hero2.mp4"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
       />
 
-      {/* Dark / Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20" />
 
-      {/* Content */}
+      {/* ================= MOBILE FALLBACK IMAGE ================= */}
+
+      {/* ================= DARK / GRADIENT OVERLAY ================= */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/20" />
+
+      {/* ================= CONTENT ================= */}
       <div className="relative z-10 min-h-screen flex items-center justify-center px-6">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -33,10 +39,9 @@ const HeroSection = () => {
           transition={{ duration: 0.9 }}
           className="text-center space-y-8 max-w-4xl"
         >
-
           {/* Heading */}
           <motion.h1
-            className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+            className="text-5xl sm:text-6xl lg:text-6xl font-bold"
             style={{
               fontFamily: 'Playfair Display, serif',
               color: '#e8e8e8ff',
@@ -46,17 +51,17 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Soccial Symphony
+            Soccial Symphony Media
           </motion.h1>
 
           {/* Tagline */}
           <motion.p
-            className="text-xl sm:text-2xl max-w-3xl mx-auto text-gray-200 font-light"
+            className="text-xl sm:text-xl max-w-3xl mx-auto text-gray-200 font-light"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            Creating powerful connections between people, brands, and emotions.
+            India’s Most Reliable & Creative Podcast and Production Company
           </motion.p>
 
           {/* CTA Button */}
@@ -87,9 +92,6 @@ const HeroSection = () => {
           </motion.button>
         </motion.div>
       </div>
-
-      {/* Bottom fade (same vibe as before) */}
-
     </section>
   );
 };

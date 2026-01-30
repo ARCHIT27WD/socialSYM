@@ -59,7 +59,7 @@ const ServicesSection = () => {
             Our Services
           </h2>
           <p className="text-lg" style={{ color: '#A1A1AA' }}>
-            Comprehensive solutions for your creative needs
+            We Help You Go Viral On Social Media With Content That Stands Out
           </p>
         </motion.div>
 
@@ -84,7 +84,7 @@ const ServicesSection = () => {
                   className="absolute inset-0 bg-cover bg-center"
                   style={{
                     backgroundImage: `url(${service.image})`,
-                    filter: 'brightness(0.4)',
+                    filter: 'brightness(0.6)',
                     transform: 'translateZ(0)',
                     willChange: 'transform',
                     transition: 'transform 0.7s ease'
@@ -97,7 +97,7 @@ const ServicesSection = () => {
                   <div
                     className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6 transition-all duration-300 group-hover:scale-110 relative overflow-hidden"
                     style={{
-                      background: '#FFF',
+                      background: '#cfcfcfff',
                       border: '2px solid #000'
                     }}
                   >

@@ -26,18 +26,22 @@ const AboutSection = () => {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight"
               style={{ fontFamily: 'Playfair Display, serif', color: '#FAFAFA' }}
             >
-              Let's create a symphony of success together.
+              Meet our Founders
             </h2>
             
             <div className="space-y-4" style={{ color: '#A1A1AA', fontSize: '1.125rem', lineHeight: '1.75' }}>
               <p>
                 <span style={{ color: '#FAFAFA', fontWeight: '600' }}>Soccial Symphony</span> - co-founded by{' '}
                 <span style={{ color: '#F59E0B' }}>Neeraj Vaid</span> and{' '}
-                <span style={{ color: '#F59E0B' }}>Pijush Singha</span>
+                <span style={{ color: '#F59E0B' }}>Pijush Singha</span> blending speaker-led storytelling with enterprise-grade execution.
               </p>
               
               <p>
-                Soccial Symphony specializes in creating powerful connections between people, brands, and emotions.
+                <span style={{ color: '#F59E0B' }}>Neeraj Vaid</span> — Creator, TEDx & Josh Talks Speaker, Author, Podcaster, and storyteller focused on narrative depth, clarity, and audience connection.
+              </p>
+
+              <p>
+                <span style={{ color: '#F59E0B' }}>Pijush Singha</span> — Ex-Corporate, Director-level leader bringing strategic thinking, operational rigour, and scalable content execution.
               </p>
               
               <p className="text-2xl font-bold" style={{ color: '#F59E0B', fontFamily: 'Playfair Display, serif' }}>

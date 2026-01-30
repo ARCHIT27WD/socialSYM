@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Star, Quotes, CaretLeft, CaretRight } from '@phosphor-icons/react';
 
@@ -7,9 +7,9 @@ const TestimonialsSection = ({ testimonials }) => {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  };
+  }, [testimonials.length]);
 
   const handlePrev = () => {
     setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
@@ -23,7 +23,7 @@ const TestimonialsSection = ({ testimonials }) => {
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [currentIndex, testimonials]);
+  }, [currentIndex, testimonials, handleNext]);
 
   if (!testimonials || testimonials.length === 0) return null;
 

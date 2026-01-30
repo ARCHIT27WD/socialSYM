@@ -37,7 +37,7 @@ const AboutSection = () => {
           >
             Meet Our Founders
           </h2>
-          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#A1A1AA' }}>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: '#e8e8e8ff' }}>
             The creative minds behind Soccial Symphony
           </p>
         </motion.div>
@@ -86,13 +86,13 @@ const AboutSection = () => {
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <div className="flex justify-center gap-8">
                     <div className="text-center">
-                      <p className="font-bold text-lg" style={{ color: '#F59E0B' }}>Neeraj Vaid</p>
-                      <p className="text-sm" style={{ color: '#FAFAFA' }}>Co-Founder</p>
+                      <p className="font-bold text-lg" style={{ color: '#FAFAFA' }}>Pijush Singha</p>
+                      <p className="text-sm" style={{ color: '#F59E0B' }}>Co-Founder</p>
                     </div>
                     <div className="w-px bg-white/30" />
                     <div className="text-center">
-                      <p className="font-bold text-lg" style={{ color: '#F59E0B' }}>Pijush Singha</p>
-                      <p className="text-sm" style={{ color: '#FAFAFA' }}>Co-Founder</p>
+                      <p className="font-bold text-lg" style={{ color: '#FAFAFA' }}>Neeraj Vaid</p>
+                      <p className="text-sm" style={{ color: '#F59E0B' }}>Founder</p>
                     </div>
                   </div>
                 </div>
@@ -125,10 +125,10 @@ const AboutSection = () => {
                     className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: 'rgba(245, 158, 11, 0.2)' }}
                   >
-                    <Microphone size={24} weight="fill" style={{ color: '#F59E0B' }} />
+                    <Microphone size={24} weight="fill" style={{ color: '#e8e8e8ff' }} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#F59E0B' }}>Neeraj Vaid</h3>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#e8e8e8ff' }}>Neeraj Vaid</h3>
                     <p style={{ color: '#A1A1AA', lineHeight: '1.7' }}>
                       Creator, TEDx & Josh Talks Speaker, Author, Podcaster, and storyteller focused on narrative depth, clarity, and audience connection.
                     </p>
@@ -152,10 +152,10 @@ const AboutSection = () => {
                     className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ background: 'rgba(245, 158, 11, 0.2)' }}
                   >
-                    <VideoCamera size={24} weight="fill" style={{ color: '#F59E0B' }} />
+                    <VideoCamera size={24} weight="fill" style={{ color: '#e8e8e8ff' }} />
                   </div>
                   <div>
-                    <h3 className="text-xl font-bold mb-2" style={{ color: '#F59E0B' }}>Pijush Singha</h3>
+                    <h3 className="text-xl font-bold mb-2" style={{ color: '#e8e8e8ff' }}>Pijush Singha</h3>
                     <p style={{ color: '#A1A1AA', lineHeight: '1.7' }}>
                       Ex-Corporate, Director-level leader bringing strategic thinking, operational rigour, and scalable content execution.
                     </p>
@@ -182,7 +182,7 @@ const AboutSection = () => {
                   className="text-2xl lg:text-3xl font-bold"
                   style={{ fontFamily: 'Playfair Display, serif', color: '#000' }}
                 >
-                  Hit the Right Note with your Brand!
+                  Built on Trust. Powered by Stories.
                 </p>
               </div>
             </motion.div>

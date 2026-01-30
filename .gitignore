@@ -85,3 +85,4 @@ frontend/node_modules/.cache/default-development/0.pack
 *.env
 *.env.*
 frontend/public/hero.mp4
+frontend/build/hero.mp4

@@ -26,10 +26,10 @@ const ShortVideosSection = ({ videos }) => {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
             style={{ fontFamily: 'Playfair Display, serif', color: '#F59E0B' }}
           >
-            Short Reels
+            Stories We Have Told
           </h2>
-          <p className="text-lg" style={{ color: '#A1A1AA' }}>
-            Quick glimpses into our creative world
+          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
+            Step into Our Creative World
           </p>
         </motion.div>
 

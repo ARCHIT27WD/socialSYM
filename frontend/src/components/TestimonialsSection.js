@@ -56,10 +56,10 @@ const TestimonialsSection = ({ testimonials }) => {
             className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-4"
             style={{ fontFamily: 'Playfair Display, serif', color: '#F59E0B' }}
           >
-            What Clients Say
+            Testimonials
           </h2>
           <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
-            Testimonials from our satisfied partners
+            What People Say About Our Work
           </p>
         </motion.div>
 

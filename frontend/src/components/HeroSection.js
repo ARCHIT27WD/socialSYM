@@ -61,7 +61,7 @@ const HeroSection = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            India’s Most Reliable & Creative Podcast and Production Company
+            India’s Most Reliable , Creative Podcast and Production Company
           </motion.p>
 
           {/* CTA Button */}

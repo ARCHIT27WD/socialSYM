@@ -77,7 +77,7 @@ const LongVideosSection = ({ videos }) => {
           >
             Featured Videos
           </h2>
-          <p className="text-lg" style={{ color: '#A1A1AA' }}>
+          <p className="text-lg" style={{ color: '#e8e8e8ff' }}>
             Dive deep into our portfolio
           </p>
         </motion.div>

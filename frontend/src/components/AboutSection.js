@@ -157,7 +157,7 @@ const AboutSection = () => {
                   <div>
                     <h3 className="text-xl font-bold mb-2" style={{ color: '#e8e8e8ff' }}>Pijush Singha</h3>
                     <p style={{ color: '#A1A1AA', lineHeight: '1.7' }}>
-                      Ex-Corporate, Director-level leader bringing strategic thinking, operational rigour, and scalable content execution.
+                      Ex–Big 4 corporate director bringing boardroom-level strategic thinking, strong operational rigor, and a proven ability to build and scale high-impact content systems.
                     </p>
                   </div>
                 </div>
